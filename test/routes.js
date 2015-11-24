@@ -39,3 +39,17 @@ test('GET /docker', t => {
   });
 });
 
+test('GET unknown route', t => {
+  api
+  .get(`/${Math.random() * 10}`)
+  .expect(404)
+  .end((err, res) => {
+    if (err) {
+      t.fail(err);
+      t.end();
+    } else {
+      t.end();
+    }
+  });
+});
+
