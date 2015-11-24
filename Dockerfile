@@ -47,11 +47,14 @@ WORKDIR ${appDir}
 ADD package.json ./
 RUN npm i --production
 
+# Install pm2 so we can run our app
+RUN npm i -g pm2
+
 # Add app files
 ADD . /var/www/app/current
 
 #Expose the port
-EXPOSE 4500
+EXPOSE 8000
 
 CMD ["pm2", "start", "processes.json"]
 
