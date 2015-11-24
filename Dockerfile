@@ -18,20 +18,9 @@ RUN apt-get install -y -q --no-install-recommends \
     g++ \
     gcc \
     git \
-    libcairo2-dev \
-    libcurl4-openssl-dev \
-    libgif-dev \
-    libicu-dev \
-    libjpeg62-turbo-dev \
-    libpango1.0-dev \
-    libssl-dev \
     make \
     nginx \
-    rsync \
-    rsyslog \
-    software-properties-common \
     sudo \
-    telnet \
     wget \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get -y autoclean
