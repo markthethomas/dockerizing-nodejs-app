@@ -4,7 +4,7 @@
       "script": "./bin/www",
       "merge_logs": true,
       "max_restarts": 20,
-      "instances": 6,
+      "instances": 4,
       "max_memory_restart": "200M",
       "node_args": ["--harmony", "--max_old_space_size=150"],
       "env": {
