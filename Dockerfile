@@ -18,20 +18,9 @@ RUN apt-get install -y -q --no-install-recommends \
     g++ \
     gcc \
     git \
-    libcairo2-dev \
-    libcurl4-openssl-dev \
-    libgif-dev \
-    libicu-dev \
-    libjpeg62-turbo-dev \
-    libpango1.0-dev \
-    libssl-dev \
     make \
     nginx \
-    rsync \
-    rsyslog \
-    software-properties-common \
     sudo \
-    telnet \
     wget \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get -y autoclean
@@ -40,7 +29,7 @@ ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 5.1.0
 
 # Install nvm with node and npm
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.0/install.sh | bash \
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash \
     && source $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
@@ -60,9 +49,6 @@ RUN npm i --production
 
 # Add app files
 ADD . /var/www/app/current
-
-# Restart nginx
-RUN service nginx restart
 
 #Expose the port
 EXPOSE 4500
