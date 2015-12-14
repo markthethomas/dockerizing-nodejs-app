@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 
 const health = require('./routes/health');
 const docker = require('./routes/docker');
+const about = require('./routes/about');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/', about);
 app.use('/health', health);
 app.use('/docker', docker);
 

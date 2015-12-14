@@ -21,6 +21,22 @@ test('GET /health', t => {
   });
 });
 
+test('GET /', t => {
+  api
+  .get('/')
+  .expect('Content-type', /json/)
+  .expect(200)
+  .end((err, res) => {
+    if (err) {
+      t.fail(err);
+      t.end();
+    } else {
+      t.ok(res.body, 'It should have a response body');
+      t.ok(res.body.about,'It should return some info about the sample app');
+      t.end();
+    }
+  });
+});
 
 test('GET /docker', t => {
   api
